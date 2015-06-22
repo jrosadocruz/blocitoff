@@ -21,6 +21,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 
 gem 'devise'
+gem 'figaro', '1.0'
 
 group :development do
   gem 'pry-rails'
