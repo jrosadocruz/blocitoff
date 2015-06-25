@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   devise_for :users
-  get 'welcome/about'
+
   get 'about' => 'welcome#about'
-  root to: "welcome#index"
+
+  unauthenticated do
+    root to: "welcome#index"
+  end
+  # AS: generates the route 'authenticated_root_path'
+  authenticated do
+    root to: 'users#show', as: :authenticated_root
+  end
+
+
 
 end
