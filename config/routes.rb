@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   unauthenticated do
     root to: "welcome#index"
   end
+
   # AS: generates the route 'authenticated_root_path'
   authenticated do
     root to: 'users#show', as: :authenticated_root
