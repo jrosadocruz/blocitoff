@@ -1,1 +1,17 @@
-%h1 My Task
+/ = render partial: 'tasks/form', locals: { task: @task }
+= form_for [@user.tasks.new] do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', placeholder: 'new task name'
+  .form-group
+    = f.submit 'Add task', class: 'btn  btn-success'
+
+
+%h1
+  My Task (
+  = @user.tasks.count
+  )
+
+- @user.tasks.each do |task|
+  %p
+    = link_to task.title, task

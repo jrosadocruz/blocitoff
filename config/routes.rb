@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tasks/show'
+
   get 'users/show'
 
   devise_for :users
@@ -14,6 +16,6 @@ Rails.application.routes.draw do
     root to: 'users#show', as: :authenticated_root
   end
 
-
+  resources :tasks, only: [:show, :create, :destroy, :update]
 
 end
