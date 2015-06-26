@@ -1,7 +1,6 @@
 %h4 Add a new Task
-= form_for [@task] do |t|
+= form_for task do |f|
   .form-group
-    = f.label :title
-    = f.text_field :title, class: 'form-control', placeholder: 'new task name'
+    = f.text_field :title, class: 'form-control', placeholder: 'Add new task'
   .form-group
     = f.submit 'Add task', class: 'btn  btn-success'
