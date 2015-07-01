@@ -1,11 +1,10 @@
 .col-md-12
-  = render partial: 'tasks/form', locals: { task: @task }
+  .new-task
+    = render partial: 'tasks/form'
 
   %h1
     My Task (
     = @user.tasks.count
     )
-
-  - @tasks.each do |task|
-    %p
-      = link_to task.title, task
+  .js-tasks
+    = render partial: 'tasks/task', collection: @tasks

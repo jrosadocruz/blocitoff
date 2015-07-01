@@ -1,0 +1,8 @@
+<% if @task.valid? %>
+  $('.js-tasks').append("<%= escape_javascript(render(@task)) %>");
+  $('.new-task').html("<%= escape_javascript(render partial: 'tasks/form', locals: { task: @new_task }) %>");
+  $('#errors').html("<%= escape_javascript(render partial: 'shared/error_messages') %>");
+<% else %>
+  $('.new-task').html("<%= escape_javascript(render partial: 'tasks/form', locals: { task: @task }) %>");
+  $('#errors').html("<%= escape_javascript(render partial: 'shared/error_messages') %>");
+<% end %>
