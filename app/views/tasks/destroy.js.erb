@@ -1,1 +1,7 @@
-$('#task-' + <%= @task.id %>).hide();
+<% if @task.destroyed? %>
+  $('#task-' + <%= @task.id %>).hide();
+  $('#task-count').html("<%= @user.tasks.count %>");
+  $('#errors').html("<%= escape_javascript(render partial: 'shared/error_messages') %>");
+<% else %>
+  $('#errors').html("<%= escape_javascript(render partial: 'shared/error_messages') %>");
+<% end %>
