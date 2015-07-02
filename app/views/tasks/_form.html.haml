@@ -1,9 +1,11 @@
-= form_for current_user.tasks.build, remote: true do |f|
+= form_for task , remote: true do |f|
   .row
     .col-md-8
       .form-group
         %h4 Add a new Task
         = f.text_field :title, class: 'form-control', placeholder: 'Add new task'
+        - if task.errors[:title].length > 0
+          %small.error Title #{task.errors[:title][0]}
     .col-md-4
       .form-group
         %h4 Due date

@@ -1,10 +1,11 @@
 .col-md-12
   .new-task
-    = render partial: 'tasks/form'
+    = render partial: 'tasks/form',  locals: {task: @new_task}
 
   %h1
     My Task (
     %span#task-count= @user.tasks.count
     )
+  %a{:href => "#{archived_path}"} Show archived
   .js-tasks
     = render partial: 'tasks/task', collection: @tasks

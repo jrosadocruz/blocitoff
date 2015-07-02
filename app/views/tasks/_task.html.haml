@@ -1,7 +1,11 @@
-.task{:id => "task-#{task.id}", :class => "#{task.task_overdue}"  }
+.task{:id => "task-#{task.id}", :class => "#{task.task_overdue?}"  }
   .task-title
     = link_to "", task, method: :delete, remote: true, class:'glyphicon glyphicon-ok', data: {confirm: 'Are you sure?'}
-    = link_to task.title, task
+    = link_to "", [:archive, task], method: :put, remote: true, class:'glyphicon glyphicon-folder-open'
+    = form_for task, class: 'form-inline', remote: true do |f|
+      = f.text_field :title, class: 'form-control  edit-title'
+    = link_to task.title, task, id: "task-edit-#{task.id}", class: 'task-link'
+    .clear
   .days-left
     Days left:
     = task.days_left

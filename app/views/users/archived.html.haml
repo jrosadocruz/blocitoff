@@ -1,0 +1,7 @@
+.col-md-12
+  %h1
+    My Task (
+    %span#task-count= @archived_tasks.count
+    )
+  .js-tasks
+    = render partial: 'tasks/task', collection: @archived_tasks
