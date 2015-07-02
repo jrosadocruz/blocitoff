@@ -1,4 +1,5 @@
 <% if @task.valid? %>
+  //  j is sintactic sugar escape_javascript
   $('.js-tasks').append("<%= j(render(@task)) %>");
   $('.new-task').html("<%= j(render partial: 'tasks/form', locals: { task: @new_task }) %>");
   $('#errors').html("<%= j(render partial: 'shared/notifications') %>");
