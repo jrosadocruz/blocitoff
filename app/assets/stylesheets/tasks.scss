@@ -4,12 +4,21 @@
 
 .task {
   padding-bottom: 10px;
-  margin-bottom:  10px;
-  border-bottom:  1px solid #eee;
+  padding-top:  10px;
+  border-top:  1px solid #eee;
+  border-left:  2px solid #eee;
+  border-right:  1px solid #eee;
+  padding-left: 5px;
+  &:last-child { border-bottom:  1px solid #eee; }
 }
 
 .clear {
   clear: both;
+}
+
+.overdue {
+  .due-date span { color: tomato; }
+  border-left: 2px solid tomato;
 }
 
 .days-left,

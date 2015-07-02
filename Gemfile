@@ -20,6 +20,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'bootstrap-sass'
 
+# https://github.com/Nerian/bootstrap-datepicker-rails
+# Docs: http://bootstrap-datepicker.readthedocs.org/en/stable/
+gem 'bootstrap-datepicker-rails'
+
 gem 'devise'
 gem 'figaro', '1.0'
 

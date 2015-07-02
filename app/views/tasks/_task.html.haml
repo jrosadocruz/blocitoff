@@ -1,4 +1,4 @@
-.task{:id => "task-#{task.id}" }
+.task{:id => "task-#{task.id}", :class => "#{task.task_overdue}"  }
   .task-title
     = link_to "", task, method: :delete, remote: true, class:'glyphicon glyphicon-ok', data: {confirm: 'Are you sure?'}
     = link_to task.title, task
@@ -8,5 +8,5 @@
   - if task.due_date
     .due-date
       Due date:
-      = task.due_date
+      %span= task.due_date
   .clear
