@@ -22,6 +22,27 @@ class TasksController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @task = Task.find(params[:id])
+    if @post.update_attributes(post_params)
+      flash[:notice] = "Task was updated."
+    else
+      flash[:error] = "There was an error updating this task. Please try again later."
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+  end
+
   def destroy
     @user = current_user
     @task = @user.tasks.find(params[:id])
@@ -34,14 +55,14 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html
       format.js
-   end
+    end
 
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:title)
+    params.require(:task).permit(:titl, :due_date, :archived)
   end
 
 end
