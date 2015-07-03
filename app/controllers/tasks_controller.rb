@@ -10,8 +10,8 @@ class TasksController < ApplicationController
 
   def create
     @user = current_user
-    @task = @user.tasks.build
-    @new_task = @user.tasks.build(task_params)
+    @task = @user.tasks.build(task_params)
+    @new_task = @user.tasks.build
     if @task.save
       flash[:notice] = "Task was created."
     else
@@ -73,6 +73,7 @@ class TasksController < ApplicationController
   def set_task
     @user = current_user
     @task = @user.tasks.find(params[:id])
+    @tasks = @user.tasks.where(archived: false)
   end
 
   def task_params

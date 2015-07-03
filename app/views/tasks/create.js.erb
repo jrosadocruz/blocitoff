@@ -3,7 +3,7 @@
   $('.js-tasks').append("<%= j(render(@task)) %>");
   $('.new-task').html("<%= j(render partial: 'tasks/form', locals: { task: @new_task }) %>");
   $('#errors').html("<%= j(render partial: 'shared/notifications') %>");
-  $('#task-count').html("<%= @user.tasks.count %>");
+  $('#task-count').html("<%= @tasks.count %>");
 <% else %>
   $('.new-task').html("<%= j(render partial: 'tasks/form', locals: { task: @task }) %>");
   $('#errors').html("<%= j(render partial: 'shared/notifications') %>");

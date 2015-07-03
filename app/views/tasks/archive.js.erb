@@ -1,6 +1,6 @@
 <% if @task.archived? %>
   $('#task-' + <%= @task.id %>).hide();
-  $('#task-count').html("<%= @user.tasks.count %>");
+  $('#task-count').html("<%= @archived_tasks.count %>");
   $('#errors').html("<%= j(render partial: 'shared/notifications') %>");
 <% else %>
   $('#errors').html("<%= j(render partial: 'shared/notifications') %>");

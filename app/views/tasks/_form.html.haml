@@ -9,7 +9,7 @@
     .col-md-4
       .form-group
         %h4 Due date
-        = f.text_field :due_date, class: 'form-control', placeholder: 'Due date (mm/dd/yyyy)', 'data-provide': 'datepicker'
+        = f.text_field :due_date, class: 'form-control', placeholder: 'Due date (yyyy/mm/dd)', 'data-provide': 'datepicker', "data-date-format": "yyyy/mm/dd/"
   .row
     .col-md-12
       .form-group
