@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   # http://www.gotealeaf.com/blog/the-detailed-guide-on-how-ajax-works-with-ruby-on-rails
-  before_action :set_task, only:[:show, :destroy, :edit, :update, :archive, :unarchive]
+  before_action :set_task, except:[:new, :create]
 
   def show
   end
