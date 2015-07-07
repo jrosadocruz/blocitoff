@@ -1,9 +1,16 @@
-= form_for task , remote: true do |f|
+- is_remote ||= false
+- remote = is_remote ? true : false
+
+= form_for task , remote: is_remote do |f|
   .row
     .col-md-8
       .form-group
-        %h4 Add a new Task
-        = f.text_field :title, class: 'form-control', placeholder: 'Add new task'
+        -if current_page?(root_path)
+          %h4 Add a new Task
+        -else
+          %h4 Task name
+
+        = f.text_field :title, class: 'form-control js-add-task', placeholder: 'Add new task', :autofocus=>true
         - if task.errors[:title].length > 0
           %small.error Title #{task.errors[:title][0]}
     .col-md-4
@@ -13,4 +20,7 @@
   .row
     .col-md-12
       .form-group
-        = f.submit 'Add task', class: 'btn  btn-success'
+        -if current_page?(root_path)
+          = f.submit 'Add task', class: 'btn  btn-success'
+        -else
+          = f.submit 'Save', class: 'btn  btn-success'

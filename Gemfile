@@ -30,6 +30,8 @@ gem 'figaro', '1.0'
 group :development do
   gem 'pry-rails'
   gem "rails-erd"
+  gem "better_errors"
+  gem 'binding_of_caller'
 end
 
 group :development, :test do

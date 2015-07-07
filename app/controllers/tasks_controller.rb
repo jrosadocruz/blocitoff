@@ -11,6 +11,7 @@ class TasksController < ApplicationController
   def create
     @user = current_user
     @task = @user.tasks.build(task_params)
+    @tasks = @user.tasks.where(archived: false)
     @new_task = @user.tasks.build
     if @task.save
       flash[:notice] = "Task was created."
@@ -24,21 +25,19 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = @user.tasks.find(params[:id])
   end
 
 
   def update
-    if @post.update_attributes(post_params)
+    @task = @user.tasks.find(params[:id])
+    if @task.update_attributes(task_params)
       flash[:notice] = "Task was updated."
+      redirect_to root_path
     else
       flash[:error] = "There was an error updating this task. Please try again later."
+      render :edit
     end
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
-
   end
 
   def archive
@@ -53,6 +52,19 @@ class TasksController < ApplicationController
       format.js
     end
   end
+
+  # def unarchive
+  #   if @task.unarchive!
+  #     flash[:notice] = "Task was unarchived."
+  #   else
+  #     flash[:error] = "There was an error unarchiving the task. Please try again."
+  #   end
+
+  #   respond_to do |format|
+  #     format.html
+  #     format.js
+  #   end
+  # end
 
   def destroy
     if @task.destroy

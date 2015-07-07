@@ -1,6 +1,8 @@
 <% if @task.destroyed? %>
-  $('#task-' + <%= @task.id %>).hide();
-  $('#task-count').html("<%= @tasks.count %>");
+  $('#task-' + <%= @task.id %>).slideToggle(function(){
+    $(this).remove();
+  });
+  $('#task-count').html("(<%= @tasks.count %>)");
   $('#errors').html("<%= j(render partial: 'shared/notifications') %>");
 <% else %>
   $('#errors').html("<%= j(render partial: 'shared/notifications') %>");

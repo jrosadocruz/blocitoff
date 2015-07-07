@@ -17,9 +17,10 @@ Rails.application.routes.draw do
     root to: 'users#show', as: :authenticated_root
   end
 
-  resources :tasks, only: [:show, :create, :destroy, :update] do
+  resources :tasks, only: [:show, :create, :edit, :destroy, :update] do
     member do
       put :archive
+      # put :unarchive
     end
   end
 

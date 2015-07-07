@@ -1,11 +1,13 @@
-.col-md-12
-  .new-task
-    = render partial: 'tasks/form',  locals: {task: @new_task}
+.row.mbl
+  .col-md-12
+    .new-task
+      = render partial: 'tasks/form',  locals: {task: @new_task, is_remote: true}
 
-  %h1
-    My Task (
-    %span#task-count= @tasks.count
-    )
-  %a{:href => "#{archived_path}"} Show archived
-  .js-tasks
-    = render partial: 'tasks/task', collection: @tasks
+.row
+  .col-md-12
+    %h1.title.mbm
+      My Task
+      %span#task-count (#{@tasks.count})
+    %a.archived-link{:href => "#{archived_path}"} Show archived
+    .js-tasks
+      = render partial: 'tasks/task', collection: @tasks
