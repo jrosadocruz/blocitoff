@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :tasks, only: [:show, :create, :edit, :destroy, :update] do
     member do
       put :archive
-      # put :unarchive
+      put :unarchive
     end
   end
 

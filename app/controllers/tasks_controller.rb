@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   # http://www.gotealeaf.com/blog/the-detailed-guide-on-how-ajax-works-with-ruby-on-rails
-  before_action :set_task, only:[:show, :destroy, :edit, :update, :archive]
+  before_action :set_task, only:[:show, :destroy, :edit, :update, :archive, :unarchive]
 
   def show
   end
@@ -53,18 +53,18 @@ class TasksController < ApplicationController
     end
   end
 
-  # def unarchive
-  #   if @task.unarchive!
-  #     flash[:notice] = "Task was unarchived."
-  #   else
-  #     flash[:error] = "There was an error unarchiving the task. Please try again."
-  #   end
+  def unarchive
+    if @task.unarchive!
+      flash[:notice] = "Task was unarchived."
+    else
+      flash[:error] = "There was an error unarchiving the task. Please try again."
+    end
 
-  #   respond_to do |format|
-  #     format.html
-  #     format.js
-  #   end
-  # end
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def destroy
     if @task.destroy

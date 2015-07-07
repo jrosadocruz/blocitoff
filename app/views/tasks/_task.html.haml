@@ -1,9 +1,11 @@
 .task.media{:id => "task-#{task.id}", :class => "#{task.task_overdue?}"  }
   .complete-task.media-left
     = link_to "", task, method: :delete, remote: true, class:'glyphicon glyphicon-ok'
+    %br/
     -if !current_page?(archived_path)
-      %br/
       = link_to "", [:archive, task], method: :put, remote: true, class:'glyphicon glyphicon-folder-open'
+    -else
+      = link_to "", [:unarchive, task], method: :put, remote: true, class:'glyphicon glyphicon-folder-close'
   .task-title.media-body
 
     = form_for task, url_for: {action: 'update', controller: 'tasks'}, method: 'put', class: 'form-inline', remote: true do |f|
