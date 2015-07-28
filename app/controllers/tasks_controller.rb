@@ -28,15 +28,18 @@ class TasksController < ApplicationController
     @task = @user.tasks.find(params[:id])
   end
 
-
   def update
     @task = @user.tasks.find(params[:id])
     if @task.update_attributes(task_params)
       flash[:notice] = "Task was updated."
-      redirect_to root_path
+      # redirect_to root_path
     else
       flash[:error] = "There was an error updating this task. Please try again later."
-      render :edit
+      # render :edit
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

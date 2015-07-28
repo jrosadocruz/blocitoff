@@ -8,11 +8,12 @@
       = link_to "", [:unarchive, task], method: :put, remote: true, class:'glyphicon glyphicon-folder-close'
   .task-title.media-body
 
-    = form_for task, url_for: {action: 'update', controller: 'tasks'}, method: 'put', class: 'form-inline', remote: true do |f|
+    = form_for task, method: :put, class: 'form-inline', remote: true do |f|
       = f.text_field :title, class: 'form-control  edit-title'
       = f.submit 'Save', class: 'btn  btn-success'
 
     = link_to task.title, edit_task_path(task), id: "task-edit-#{task.id}", class:'task-link'
+
     .clear
     .days-left
       Days left:

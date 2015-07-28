@@ -1,0 +1,6 @@
+<% if @task.valid? %>
+  $('#edit_task_<%= @task.id %>').slideToggle(function(){
+    $('#task-<%= @task.id%>').replaceWith("<%= j(render @task) %>")
+  });
+<% else %>
+<% end %>

@@ -1,14 +1,14 @@
 console.log('user-page');
 
-// $(function(){
-//   $('body').on('click', '.task-link', function(e){
-//     e.preventDefault();
-//     console.log('works like a charm');
+$(function(){
+  $('body').on('click', '.task-link', function(e){
+    e.preventDefault();
+    console.log('works like a charm');
 
-//     $that = $(this);
-//     $that.siblings('.edit_task').show().end().hide();
-//   })
-// });
+    $that = $(this);
+    $that.siblings('.edit_task').show().end().hide();
+  })
+});
 
 // $('.task').find('.task-link').click(function(e) {
 //   e.preventDefault()
